@@ -115,7 +115,7 @@ st.sidebar.subheader("📈 indices for public opinion")
 uploaded_files = st.sidebar.file_uploader("Choose a CSV file", type=['csv'], accept_multiple_files=True)
 for uploaded_file in uploaded_files:
     bytes_data = uploaded_file.read()
-    dataframe = pd.read_csv(uploaded_file)
+    dataframe = pd.read_csv(uploaded_file,index_col=0,encoding='cp949')
     st.write(dataframe)
 
 
