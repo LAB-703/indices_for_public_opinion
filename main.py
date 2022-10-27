@@ -119,7 +119,7 @@ for uploaded_file in uploaded_files:
     st.write(dataframe)
 
 
-index = ['naver_news','naver_cafe','naver_blog', 'daum_news','daum_cafe','daum_blog','youtube','tweeter','facebook','instagram']
+index = ['CR','HHI','Gini', 'LQ']
 indices_selections = st.sidebar.multiselect(
     "Select indices to View", options=index, default=index
 )
