@@ -125,8 +125,8 @@ indices_selections = st.sidebar.multiselect(
 
 ##############################################################
 
-df_news=pd.read_csv("df_news2.csv", encoding='utf8')
-df_reply=pd.read_csv("df_reply.csv", encoding='utf8')
+df_news=pd.read_csv("df_news2.csv", encoding='cp949')
+df_reply=pd.read_csv("df_reply.csv", encoding='cp949')
 
 
 
