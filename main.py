@@ -179,8 +179,14 @@ if indices_selections=="CR":
     \sum_{k=0}^{n-1} ar^k =
     a \left(\frac{1-r^{n}}{1-r}\right)
     ''')
-        code = '''def hello():
-        print("Hello, Streamlit!")'''
+        code = '''import pandas as pd
+import numpy as np
+
+def CR(df,sort_by,k=3):
+    CR_df=pd.DataFrame({"count" : df[sort_by].value_counts()}).reset_index()
+    CR_df['Si']=CR_df['count']/len(df)
+    CR=np.sum(CR_df['Si'][0:k]).round(3)
+    return CR'''
         st.sidebar.code(code, language='python')
          
 
