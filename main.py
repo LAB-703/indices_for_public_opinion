@@ -181,7 +181,7 @@ if indices_selections=="CR":
     ''')
         code = '''def hello():
         print("Hello, Streamlit!")'''
-        st.code(code, language='python')
+        st.sidebar.code(code, language='python')
          
 
 #################################################################
