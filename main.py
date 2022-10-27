@@ -107,8 +107,54 @@ st.markdown(hide_menu, unsafe_allow_html=True)
 #}
 
 
+import pandas as pd
+import numpy as np
+
+def CR(df,sort_by,k=3):
+    CR_df=pd.DataFrame({"count" : df[sort_by].value_counts()}).reset_index()
+    CR_df['Si']=CR_df['count']/len(df)
+    CR=np.sum(CR_df['Si'][0:k]).round(3)
+    return CR
+
+import pandas as pd
+import numpy as np
+
+def HHI(df, sort_by):
+    HHI_df=pd.DataFrame({"count" : df[sort_by].value_counts()}).reset_index()
+    HHI_df['Si']=HHI_df['count']/len(df)
+    HHI=np.sum(np.square(HHI_df['Si'])*10000)
+    return HHI
+
+import pandas as pd
+import numpy as np
+
+def Gini(df, sort_by):
+    Gini_df=pd.DataFrame({"count" : df[sort_by].value_counts()}).reset_index().sort_values('count')
+    n=len(Gini_df)
+    Mu=Gini_df['count'].sum()
+    Gini_list=[]
+    for i in range(0,n):
+        for j in range(0,n):
+            Gini_list.append([Gini_df['index'][i],Gini_df['index'][j],abs(Gini_df['count'][i]-Gini_df['count'][j])])
+    Gini_df2=pd.DataFrame(Gini_list,columns=[sort_by+"1",sort_by+"2","abs"])
+    Sum=Gini_df2['abs'].sum()
+    Delta=Sum/(n*(n-1))
+    Gini=(Delta/(2*Mu)).round(3)
+    return Gini, Gini_df2
 
 
+import pandas as pd
+import numpy as np
+
+def LQ(df, index_i, i, index_j,j, sort_by):
+    LQ_df=df[[index_i,index_j,sort_by]].drop_duplicates()
+    LQ_df2=pd.crosstab(LQ_df[index_j],LQ_df[index_i],margins=True)
+    Q=LQ_df2['All']['All']
+    Qi=LQ_df2[i]['All']
+    Qj=LQ_df2['All'][j]
+    Qij=LQ_df2[i][j]
+    LQ=round((Qij/Qi)/(Qj/Q),3)
+    return LQ,LQ_df2
 #################################################################
 st.sidebar.subheader("📈 indices for public opinion")
 
@@ -131,6 +177,6 @@ indices_selections = st.sidebar.multiselect(
 df_reply=pd.read_csv("df_reply.csv", encoding='cp949')
 df_news=pd.read_csv("df_news2.csv", encoding='cp949')
 
-
+st.write(CR(df_news, 'COMPANY', 5))
 
 
