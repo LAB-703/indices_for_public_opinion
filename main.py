@@ -112,8 +112,11 @@ st.markdown(hide_menu, unsafe_allow_html=True)
 #################################################################
 st.sidebar.subheader("📈 indices for public opinion")
 
-keyword = st.sidebar.text_input('keyword', '탈원전')
-st.sidebar.write('keyword is', keyword)
+uploaded_files = st.file_uploader("Choose a CSV file", accept_multiple_files=True)
+for uploaded_file in uploaded_files:
+    bytes_data = uploaded_file.read()
+    st.write("filename:", uploaded_file.name)
+    st.write(bytes_data)
 
 
 index = ['naver_news','naver_cafe','naver_blog', 'daum_news','daum_cafe','daum_blog','youtube','tweeter','facebook','instagram']
@@ -126,7 +129,7 @@ indices_selections = st.sidebar.multiselect(
 ##############################################################
 
 df_reply=pd.read_csv("df_reply.csv", encoding='cp949')
-df_news2=pd.read_csv("df_news2.csv", encoding='cp949')
+df_news=pd.read_csv("df_news2.csv", encoding='cp949')
 
 
 
