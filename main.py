@@ -155,6 +155,22 @@ def LQ(df, index_i, i, index_j,j, sort_by):
     Qij=LQ_df2[i][j]
     LQ=round((Qij/Qi)/(Qj/Q),3)
     return LQ,LQ_df2
+
+
+##############################################################
+
+df_news=pd.read_csv("df_news2.csv", encoding='cp949',index_col=0)
+df_reply=pd.read_csv("df_reply.csv", encoding='cp949',index_col=0)
+
+tabs=["df_news", "df_reply"]
+tab1, tab2 = st.tabs(tabs)
+
+tab1.subheader("df_news")
+tab1.write(df_news)
+tab1.write(CR(df_news, 'COMPANY', 5))
+
+tab2.subheader("df_reply")
+tab2.write(df_reply)
 #################################################################
 st.sidebar.subheader("📈 indices for public opinion")
 
@@ -163,6 +179,8 @@ for uploaded_file in uploaded_files:
   #  bytes_data = uploaded_file.read()
     dataframe = pd.read_csv(uploaded_file,index_col=0,encoding='cp949')
     st.write(dataframe)
+    tabs.append(uploaded_file)
+
 
 
 index = ['CR','HHI','Gini', 'LQ']
@@ -172,20 +190,7 @@ indices_selections = st.sidebar.multiselect(
 
 
 
-##############################################################
 
-df_news=pd.read_csv("df_news2.csv", encoding='cp949',index_col=0)
-df_reply=pd.read_csv("df_reply.csv", encoding='cp949',index_col=0)
-
-
-tab1, tab2 = st.tabs(["df_news", "df_reply"])
-
-tab1.subheader("df_news")
-tab1.write(df_news)
-tab1.write(CR(df_news, 'COMPANY', 5))
-
-tab2.subheader("df_reply")
-tab2.write(df_reply)
 
 
 
