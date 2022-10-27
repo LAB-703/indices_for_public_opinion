@@ -177,6 +177,9 @@ indices_selections = st.sidebar.multiselect(
 df_reply=pd.read_csv("df_reply.csv", encoding='cp949')
 df_news=pd.read_csv("df_news2.csv", encoding='cp949')
 
+st.write(df_reply)
+st.write(df_news)
+
 st.write(CR(df_news, 'COMPANY', 5))
 
 
