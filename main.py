@@ -161,22 +161,14 @@ def LQ(df, index_i, i, index_j,j, sort_by):
 
 df_news=pd.read_csv("df_news2.csv", encoding='cp949',index_col=0)
 df_reply=pd.read_csv("df_reply.csv", encoding='cp949',index_col=0)
-
 tabs=["df_news", "df_reply"]
-tab1, tab2 = st.tabs(tabs)
 
-tab1.subheader("df_news")
-tab1.write(df_news)
-tab1.write(CR(df_news, 'COMPANY', 5))
-
-tab2.subheader("df_reply")
-tab2.write(df_reply)
 #################################################################
 st.sidebar.subheader("📈 indices for public opinion")
 
 uploaded_files = st.sidebar.file_uploader("Due to the limit of capacity, remove unnecessary columns and upload them.", type=['csv'], accept_multiple_files=True)
+
 for uploaded_file in uploaded_files:
-  #  bytes_data = uploaded_file.read()
     dataframe = pd.read_csv(uploaded_file,index_col=0,encoding='cp949')
     st.write(dataframe)
     tabs.append(uploaded_file)
@@ -188,12 +180,16 @@ indices_selections = st.sidebar.multiselect(
     "Select indices to View", options=index, default=index
 )
 
+#################################################################
 
+tab1, tab2,tab3,tab4,tab5 = st.tabs(tabs)
 
+tab1.subheader("df_news")
+tab1.write(df_news)
+tab1.write(CR(df_news, 'COMPANY', 5))
 
-
-
-
+tab2.subheader("df_reply")
+tab2.write(df_reply)
 
 
 
