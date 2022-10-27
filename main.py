@@ -170,9 +170,8 @@ st.sidebar.subheader("📈 indices for public opinion")
 
 
 
-index = ['CR','HHI','Gini', 'LQ']
 indices_selections = st.sidebar.selectbox(
-    "Select index to Know", options=index, default=index
+    "Select index to Know",['CR','HHI','Gini', 'LQ']
 )
 
 #################################################################
