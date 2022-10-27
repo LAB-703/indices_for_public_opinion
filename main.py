@@ -182,7 +182,7 @@ indices_selections = st.sidebar.multiselect(
 
 #################################################################
 
-tab1, tab2,tab3,tab4,tab5 = st.tabs(tabs)
+tab1, tab2,tab3 = st.tabs(tabs)
 
 tab1.subheader("df_news")
 tab1.write(df_news)
