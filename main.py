@@ -112,11 +112,11 @@ st.markdown(hide_menu, unsafe_allow_html=True)
 #################################################################
 st.sidebar.subheader("📈 indices for public opinion")
 
-uploaded_files = st.file_uploader("Choose a CSV file", accept_multiple_files=True)
+uploaded_files = st.sidebar.file_uploader("Choose a CSV file", accept_multiple_files=True)
 for uploaded_file in uploaded_files:
     bytes_data = uploaded_file.read()
-    st.write("filename:", uploaded_file.name)
-    st.write(bytes_data)
+    st.sidebar.write("filename:", uploaded_file.name)
+    st.sidebar.write(bytes_data)
 
 
 index = ['naver_news','naver_cafe','naver_blog', 'daum_news','daum_cafe','daum_blog','youtube','tweeter','facebook','instagram']
