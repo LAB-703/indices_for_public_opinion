@@ -116,7 +116,7 @@ uploaded_files = st.sidebar.file_uploader("Choose a CSV file", accept_multiple_f
 for uploaded_file in uploaded_files:
     bytes_data = uploaded_file.read()
     st.write("filename:", uploaded_file.name)
-    st.write(bytes_data)
+    st.table(bytes_data)
 
 
 index = ['naver_news','naver_cafe','naver_blog', 'daum_news','daum_cafe','daum_blog','youtube','tweeter','facebook','instagram']
