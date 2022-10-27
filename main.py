@@ -115,8 +115,8 @@ st.sidebar.subheader("📈 indices for public opinion")
 uploaded_files = st.sidebar.file_uploader("Choose a CSV file", type=['csv'], accept_multiple_files=True)
 for uploaded_file in uploaded_files:
     bytes_data = uploaded_file.read()
-    st.write("filename:", uploaded_file.name)
-    st.table(bytes_data)
+    dataframe = pd.read_csv(uploaded_file)
+    st.write(dataframe)
 
 
 index = ['naver_news','naver_cafe','naver_blog', 'daum_news','daum_cafe','daum_blog','youtube','tweeter','facebook','instagram']
