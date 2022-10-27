@@ -174,12 +174,21 @@ indices_selections = st.sidebar.multiselect(
 
 ##############################################################
 
-df_reply=pd.read_csv("df_reply.csv", encoding='cp949')
-df_news=pd.read_csv("df_news2.csv", encoding='cp949')
+df_news=pd.read_csv("df_news2.csv", encoding='cp949',index_col=0)
+df_reply=pd.read_csv("df_reply.csv", encoding='cp949',index_col=0)
 
-st.write(df_reply)
-st.write(df_news)
 
-st.write(CR(df_news, 'COMPANY', 5))
+tab1, tab2 = st.tabs(["df_news", "df_reply"])
+
+tab1.subheader("df_news")
+tab1.write(df_news)
+tab1.write(CR(df_news, 'COMPANY', 5))
+
+tab2.subheader("df_reply")
+tab2.write(df_reply)
+
+
+
+
 
 
