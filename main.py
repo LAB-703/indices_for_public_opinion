@@ -10,7 +10,7 @@ import pandas as pd
 import numpy as np
 
 st.set_page_config(
-        "Search Engine Dashboard",
+        "indices_for_public_opinion",
         "📈",
         initial_sidebar_state="expanded",
         layout="wide",
@@ -109,45 +109,24 @@ st.markdown(hide_menu, unsafe_allow_html=True)
 
 
 
-##################################################################
-st.sidebar.subheader("Search Engine")
+#################################################################
+st.sidebar.subheader("📈 indices for public opinion")
 
 keyword = st.sidebar.text_input('keyword', '탈원전')
 st.sidebar.write('keyword is', keyword)
 
 
-platform = ['naver_news','naver_cafe','naver_blog', 'daum_news','daum_cafe','daum_blog','youtube','tweeter','facebook','instagram']
-platform_selections = st.sidebar.multiselect(
-    "Select Platforms to View", options=platform, default=platform
+index = ['naver_news','naver_cafe','naver_blog', 'daum_news','daum_cafe','daum_blog','youtube','tweeter','facebook','instagram']
+indices_selections = st.sidebar.multiselect(
+    "Select indices to View", options=index, default=index
 )
 
 
-Start_date = st.sidebar.date_input(
- "Start date")
-st.sidebar.write('Start date is:', Start_date)
-
-End_date = st.sidebar.date_input(
- "End date")
-st.sidebar.write('End date is:', End_date)
 
 ##############################################################
 
-df=pd.read_csv("example2.csv", encoding='utf8')
+df_news=pd.read_csv("df_news2.csv", encoding='utf8')
+df_reply=pd.read_csv("df_reply.csv", encoding='utf8')
 
-head="키워드 " +keyword+"에 대한 플랫폼별 검색결과는 "+str(len(df))+"건으로 다음과 같습니다."
-st.header(head)
 
-for platform in platform_selections:
-    expander = st.expander(platform)
-    dataframe=df[df['platform']==platform]
-    #expander.write(dataframe)
-    
-    for i in range(0,len(dataframe)):
-        info="작성자 : "+str(dataframe.iloc[i][7])+" | 작성일 : "+str(dataframe.iloc[i][5])
-        link=" | [원문보기]("+str(dataframe.iloc[i][1])+")"
-        expander.write(info+link)
-        if dataframe.iloc[i][8] is np.NaN:
-            expander.write("삭제된 댓글입니다.")
-        else:
-            expander.write(dataframe.iloc[i][8])
-        expander.write("")
+
