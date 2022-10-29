@@ -163,7 +163,7 @@ if indices_selections=="CR":
         st.sidebar.latex(r'''CR_{k}=\sum_{i=1}^{k}S_{i}\\ \\
 S_{i}=
     ''')
-        st,sidebar.write('점유율')
+        st.sidebar.write('점유율')
         CR_code = '''import pandas as pd
 import numpy as np
 
