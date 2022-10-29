@@ -161,8 +161,9 @@ indices_selections = st.sidebar.selectbox(
 
 if indices_selections=="CR":
         st.sidebar.latex(r'''CR_{k}=\sum_{i=1}^{k}S_{i}\\ \\
-S_{i}=점유율
+S_{i}=
     ''')
+        st,sidebar.write('점유율')
         CR_code = '''import pandas as pd
 import numpy as np
 
@@ -175,8 +176,9 @@ def CR(df,sort_by,k=3):
         
 if indices_selections=="HHI":
         st.sidebar.latex(r'''
-    \sum_{k=0}^{n-1} ar^k =
-    a \left(\frac{1-r^{n}}{1-r}\right)
+    HHI=\sum_{i=1}^{N}{S_{i}}^{2}\times 10,000 
+\\
+ S_{i}=\frac{n_{i}}{N}
     ''')
         HHI_code = '''import pandas as pd
 import numpy as np
