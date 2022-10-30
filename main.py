@@ -256,11 +256,11 @@ tab3.subheader("user ➕")
 
 # tab3.write(uploaded_files)
                            
-uploaded_file = st.file_uploader("Choose a file")
+uploaded_file = st.file_uploader("Due to the limit of capacity, remove unnecessary columns and upload them.", type=['csv'])
 if uploaded_file is not None:
-
-    # Can be used wherever a "file-like" object is accepted:
     dataframe = pd.read_csv(uploaded_file,index_col=0,encoding='cp949')
     st.write(dataframe)
-
+    tab3.selectbox(
+    tab3.selectbox("Select file to apply", dataframe.columns)
+        
 
