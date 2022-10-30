@@ -272,6 +272,6 @@ Gini = st.checkbox('Gini')
 LQ = st.checkbox('LQ')
 
 if CR:
-    st.write('CR :', CR(df_news, 'COMPANY', 5))
+        st.write('CR :', CR(df_news, 'COMPANY', 5))
         
      
