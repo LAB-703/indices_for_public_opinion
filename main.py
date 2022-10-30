@@ -263,7 +263,7 @@ if uploaded_file is not None:
 col1, col2= tab3.columns(2)        
 with col1:
     tab3.write(dataframe)  
-    with col2:
+with col2:
     tab3.selectbox("Select column to apply for sort_by", dataframe.columns)
         
      
