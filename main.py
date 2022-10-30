@@ -192,8 +192,8 @@ def HHI(df, sort_by):
          
 if indices_selections=="Gini":
         st.sidebar.latex(r'''
-    \sum_{k=0}^{n-1} ar^k =
-    a \left(\frac{1-r^{n}}{1-r}\right)
+    G=\frac{\Delta }{2\mu }\\
+\Delta =\frac{1}{n(n-1)} \sum_{n}^{i=1}\sum_{n}^{j=1}\left|x_{i}-x_{j}\right|
     ''')
         Gini_code = '''def Gini(df, sort_by):
     Gini_df=pd.DataFrame({"count" : df[sort_by].value_counts()}).reset_index().sort_values('count')
