@@ -204,7 +204,7 @@ def CR(df,sort_by,k=3):
     CR=np.sum(CR_df['Si'][0:k]).round(3)
     return CR'''
     st.sidebar.code(CR_code, language='python')
-    tab1.write('CR by COMPANY : ',CR(df_news, 'COMPANY'))
+    tab1.write(CR(df_news, 'COMPANY'))
     tab1.write('CR by AUTHOR : ',CR(df_news, 'AUTHOR'))
     tab2.write('CR by AUTHOR_RE : ',CR(df_reply, 'AUTHOR_RE'))
         
