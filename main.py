@@ -251,7 +251,7 @@ tab3.subheader("user ➕")
 #     tab3.write(dataframe)
 
 
-uploaded_file = tab3.file_uploader("Due to the limit of capacity, remove unnecessary columns and upload them.", type=['csv'], accept_multiple_files=False)
+uploaded_file = tab3.file_uploader("Due to the limit of capacity, remove unnecessary columns and upload them.", type=['csv'])
 dataframe = pd.read_csv(uploaded_file,index_col=0,encoding='cp949')
 tab3.write(dataframe)
 
