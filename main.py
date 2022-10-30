@@ -243,17 +243,24 @@ tab2.write(df_reply)
 tab3.subheader("user ➕")
 
 # 복수 허용 
-uploaded_files = tab3.file_uploader("Due to the limit of capacity, remove unnecessary columns and upload them.", type=['csv'], accept_multiple_files=True)
+# uploaded_files = tab3.file_uploader("Due to the limit of capacity, remove unnecessary columns and upload them.", type=['csv'], accept_multiple_files=True)
 
-for uploaded_file in uploaded_files:
-    dataframe = pd.read_csv(uploaded_file,index_col=0,encoding='cp949')
-    tab3.write(dataframe)
+# for uploaded_file in uploaded_files:
+#     dataframe = pd.read_csv(uploaded_file,index_col=0,encoding='cp949')
+#     uploaded_file.str.find("name"
+#     tab3.write(dataframe)
         
 
-file_selections = tab3.selectbox(
-    "Select file to apply",uploaded_files)
+# file_selections = tab3.selectbox(
+#     "Select file to apply",uploaded_files)
 
-tab3.write(uploaded_files)
+# tab3.write(uploaded_files)
+                           
+uploaded_file = st.file_uploader("Choose a file")
+if uploaded_file is not None:
 
+    # Can be used wherever a "file-like" object is accepted:
+    dataframe = pd.read_csv(uploaded_file)
+    st.write(dataframe)
 
 
