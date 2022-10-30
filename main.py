@@ -253,7 +253,7 @@ for uploaded_file in uploaded_files:
 file_selections = tab3.selectbox(
     "Select file to apply",uploaded_files)
 
-print(uploaded_files)
+tab3.write(uploaded_files)
 
 
 
