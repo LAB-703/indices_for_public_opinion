@@ -169,7 +169,6 @@ tab3.subheader("user ➕")
 
 
 
-
 if indices_selections=="CR":
     st.sidebar.latex(r'''CR_{k}=\sum_{i=1}^{k}S_{i}
     ''')
@@ -183,7 +182,7 @@ def CR(df,sort_by,k=3):
     CR=np.sum(CR_df['Si'][0:k]).round(3)
     return CR'''
     st.sidebar.code(CR_code, language='python')
-    
+    tab1.write(CR(df_news, 'COMPANY'))
         
 if indices_selections=="HHI":
         st.sidebar.latex(r'''
@@ -268,12 +267,4 @@ if uploaded_file is not None:
     tab3.write(dataframe)  
 
 
-CR = st.checkbox('CR')
-HHI = st.checkbox('HHI')
-Gini = st.checkbox('Gini')
-LQ = st.checkbox('LQ')
-
-if CR:
-        st.write('CR :', CR(df_news, 'COMPANY', 5))
-        
      
