@@ -182,7 +182,7 @@ def CR(df,sort_by,k=3):
     return CR'''
     st.sidebar.code(CR_code, language='python')
     tab1.write('1 + 1 = ', 2)
-    tab1.write('CR :', CR(df_news, 'COMPANY', 5))
+ #   tab1.write('CR :', CR(df_news, 'COMPANY', 5))
         
 if indices_selections=="HHI":
         st.sidebar.latex(r'''
