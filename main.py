@@ -160,10 +160,10 @@ indices_selections = st.sidebar.selectbox(
 )
 
 if indices_selections=="CR":
-        st.sidebar.latex(r'''CR_{k}=\sum_{i=1}^{k}S_{i}
+    st.sidebar.latex(r'''CR_{k}=\sum_{i=1}^{k}S_{i}
     ''')
-        st.sidebar.write('점유율')
-        CR_code = '''import pandas as pd
+    st.sidebar.write('점유율')
+    CR_code = '''import pandas as pd
 import numpy as np
 
 def CR(df,sort_by,k=3):
@@ -171,9 +171,9 @@ def CR(df,sort_by,k=3):
     CR_df['Si']=CR_df['count']/len(df)
     CR=np.sum(CR_df['Si'][0:k]).round(3)
     return CR'''
-        st.sidebar.code(CR_code, language='python')
-        tab1.write('CR :')
-        tab1.write(CR(df_news, 'COMPANY', 5))
+    st.sidebar.code(CR_code, language='python')
+    tab1.write('CR :')
+    tab1.write(CR(df_news, 'COMPANY', 5))
         
 if indices_selections=="HHI":
         st.sidebar.latex(r'''
