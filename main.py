@@ -258,10 +258,9 @@ tab3.subheader("user ➕")
                            
 uploaded_file = tab3.file_uploader("Due to the limit of capacity, remove unnecessary columns and upload them.", type=['csv'])
 if uploaded_file is not None:
-    dataframe = pd.read_csv(uploaded_file,index_col=0,encoding='cp949')
-
     col1, col2= tab3.columns(2)
     with col1:
+        dataframe = pd.read_csv(uploaded_file,index_col=0,encoding='cp949')
         tab3.write(dataframe)
         
     with col2:
