@@ -172,7 +172,7 @@ def CR(df,sort_by,k=3):
     CR=np.sum(CR_df['Si'][0:k]).round(3)
     return CR'''
         st.sidebar.code(CR_code, language='python')
-        st.code("CR :")
+        tab1.write("CR :"+CR(df_news, 'COMPANY', 5))
         
 if indices_selections=="HHI":
         st.sidebar.latex(r'''
@@ -240,7 +240,7 @@ tab1, tab2,tab3 = st.tabs(tabs)
 
 tab1.subheader("df_news")
 tab1.write(df_news)
-tab1.write(CR(df_news, 'COMPANY', 5))
+
 
 tab2.subheader("df_reply")
 tab2.write(df_reply)
