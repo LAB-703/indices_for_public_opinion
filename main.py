@@ -208,7 +208,7 @@ def CR(df,sort_by,k=3):
     tab1.write('CR by AUTHOR : ',CR(df_news, 'AUTHOR'))
     tab2.write('CR by AUTHOR_RE : ',CR(df_reply, 'AUTHOR_RE'))
         
-if uploaded_file is not None and :
+if uploaded_file is not None:
     sort_by=st.selectbox("select column to apply", df.columns)
     tab3.write('CR by '+sort_by+' : ',CR(df, sort_by))
 
