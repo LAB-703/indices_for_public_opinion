@@ -213,7 +213,7 @@ if indices_selections=="Gini":
         
 if indices_selections=="LQ":
         st.sidebar.latex(r'''
-        https://latex.codecogs.com/svg.image?G=\frac{\Delta&space;}{2\mu&space;}\\\Delta&space;=\frac{1}{n(n-1)}&space;\sum_{n}^{i=1}\sum_{n}^{j=1}\left|x_{i}-x_{j}\right|
+        G=\frac{\Delta&space;}{2\mu&space;}\\\Delta&space;=\frac{1}{n(n-1)}&space;\sum_{n}^{i=1}\sum_{n}^{j=1}\left|x_{i}-x_{j}\right|
     ''')
         LQ_code = '''import pandas as pd
 import numpy as np
