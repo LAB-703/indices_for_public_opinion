@@ -270,6 +270,6 @@ index_selections = st.selectbox(
     "Select index to Know",['CR','HHI','Gini', 'LQ']
 )
 
-if index_selections=="CR":
-    CR(dataframe, sort_by) 
+#if index_selections=="CR":
+#    CR(dataframe, sort_by) 
 
