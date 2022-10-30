@@ -233,6 +233,12 @@ def LQ(df, index_i, i, index_j,j, sort_by):
         st.sidebar.code(LQ_code, language='python')        
 #################################################################
 
+indices= st.selectbox("Select index to Know",['CR','HHI','Gini', 'LQ'])
+
+#if index_selections=="CR":
+#    CR(dataframe, sort_by) 
+
+
 tab1, tab2,tab3 = st.tabs(tabs)
 
 tab1.subheader("df_news")
@@ -266,10 +272,4 @@ if uploaded_file is not None:
     tab3.write(dataframe)  
         
         
-index_selections = st.selectbox(
-    "Select index to Know",['CR','HHI','Gini', 'LQ']
-)
-
-#if index_selections=="CR":
-#    CR(dataframe, sort_by) 
 
