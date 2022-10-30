@@ -244,8 +244,8 @@ def LQ(df, index_i, i, index_j,j, sort_by):
 #################################################################
 
 
-
-
+if indices_selections=="CR":
+    tab1.write('CR :', CR(df_news, 'COMPANY', 5))
 
 # 복수 허용 
 # uploaded_files = tab3.file_uploader("Due to the limit of capacity, remove unnecessary columns and upload them.", type=['csv'], accept_multiple_files=True)
