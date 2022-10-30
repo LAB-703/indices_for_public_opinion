@@ -267,9 +267,4 @@ if uploaded_file is not None:
     sort_by=tab3.selectbox("Select column to apply for sort_by", dataframe.columns)
     tab3.write(dataframe)  
         
-        
-indices_list= st.selectbox("Select index to Know",['CR','HHI','Gini', 'LQ'])
-
-#if index_selections=="CR":
-#    CR(dataframe, sort_by) 
-
+     
