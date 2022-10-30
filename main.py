@@ -164,7 +164,7 @@ tab2.write(df_reply)
 tab3.subheader("user ➕")
 
 
-indices_selections = st.sidebar.selectbox(
+indices_selections = st.selectbox(
     "Select index to Know",['CR','HHI','Gini', 'LQ']
 )
 
