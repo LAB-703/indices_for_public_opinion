@@ -209,7 +209,7 @@ def CR(df,sort_by,k=3):
     tab2.write(CR(df_reply, 'AUTHOR_RE'))
         
 if uploaded_file is not None:
-    sort_by=st.selectbox("select column to apply", df.columns)
+    sort_by=tab3.selectbox("select column to apply", df.columns)
     tab3.write(CR(df, sort_by))
 
 
