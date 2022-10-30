@@ -205,8 +205,8 @@ def CR(df,sort_by,k=3):
     return CR'''
     st.sidebar.code(CR_code, language='python')
     tab1.write(CR(df_news, 'COMPANY'))
-    tab1.write('CR by AUTHOR : ',CR(df_news, 'AUTHOR'))
-    tab2.write('CR by AUTHOR_RE : ',CR(df_reply, 'AUTHOR_RE'))
+    tab1.write(CR(df_news, 'AUTHOR'))
+    tab2.write(CR(df_reply, 'AUTHOR_RE'))
         
 if uploaded_file is not None:
     sort_by=st.selectbox("select column to apply", df.columns)
