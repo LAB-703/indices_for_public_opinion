@@ -167,7 +167,7 @@ tab2.write(df_reply)
 
 tab3.subheader("user ➕")
 
-
+##################################################################################1. CR
 
 if indices_selections=="CR":
     st.sidebar.latex(r'''CR_{k}=\sum_{i=1}^{k}S_{i}
@@ -183,6 +183,10 @@ def CR(df,sort_by,k=3):
     return CR'''
     st.sidebar.code(CR_code, language='python')
     tab1.write(CR(df_news, 'COMPANY'))
+    tab2.write(CR(df_reply, 'COMPANY'))
+    tab3.write(CR(dataframe, 'COMPANY'))
+
+##################################################################################2. HHI
         
 if indices_selections=="HHI":
         st.sidebar.latex(r'''
@@ -200,6 +204,7 @@ def HHI(df, sort_by):
     HHI=np.sum(np.square(HHI_df['Si'])*10000)
     return HHI'''
         st.sidebar.code(HHI_code, language='python')
+##################################################################################3. Gini
          
 if indices_selections=="Gini":
         st.sidebar.latex(r'''
@@ -223,6 +228,7 @@ if indices_selections=="Gini":
     return Gini, Gini_df2
 '''
         st.sidebar.code(Gini_code, language='python')
+##################################################################################4. LQ
         
 if indices_selections=="LQ":
         st.sidebar.latex(r'''
