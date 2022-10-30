@@ -242,7 +242,7 @@ tab2.subheader("df_reply")
 tab2.write(df_reply)
 
 tab3.subheader("user ➕")
-uploaded_files = tab3.file_uploader("Due to the limit of capacity, remove unnecessary columns and upload them.", type=['csv'], accept_multiple_files=True)
+uploaded_files = tab3.file_uploader("Due to the limit of capacity, remove unnecessary columns and upload them.", type=['csv'], accept_multiple_files=False)
 
 for uploaded_file in uploaded_files:
     dataframe = pd.read_csv(uploaded_file,index_col=0,encoding='cp949')
