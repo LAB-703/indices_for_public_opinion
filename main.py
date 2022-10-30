@@ -164,7 +164,7 @@ tab2.write(df_reply)
 tab3.subheader("user ➕")
 
 
-indices_selections = tab1.sidebar.selectbox(
+indices_selections = st.sidebar.selectbox(
     "Select index to Know",['CR','HHI','Gini', 'LQ']
 )
 
@@ -181,7 +181,7 @@ def CR(df,sort_by,k=3):
     CR=np.sum(CR_df['Si'][0:k]).round(3)
     return CR'''
     st.sidebar.code(CR_code, language='python')
-    st.write('CR :', CR(df_news, 'COMPANY', 5))
+    
         
 if indices_selections=="HHI":
         st.sidebar.latex(r'''
@@ -264,5 +264,14 @@ if uploaded_file is not None:
     dataframe = pd.read_csv(uploaded_file,index_col=0,encoding='cp949')
     sort_by=tab3.selectbox("Select column to apply for sort_by", dataframe.columns)
     tab3.write(dataframe)  
+
+
+CR = st.checkbox('CR')
+HHI = st.checkbox('HHI')
+Gini = st.checkbox('Gini')
+LQ = st.checkbox('LQ')
+
+if CR:
+    st.write('CR :', CR(df_news, 'COMPANY', 5))
         
      
