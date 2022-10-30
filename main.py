@@ -151,6 +151,10 @@ df_reply=pd.read_csv("df_reply.csv", encoding='cp949',index_col=0)
 #################################################################
 st.sidebar.subheader("📈 indices for public opinion")
 
+indices_selections = st.selectbox(
+    "Select index to Know",['CR','HHI','Gini', 'LQ']
+)
+
 tabs=["df_news", "df_reply", "user ➕"]
 tab1, tab2,tab3 = st.tabs(tabs)
 
@@ -164,9 +168,7 @@ tab2.write(df_reply)
 tab3.subheader("user ➕")
 
 
-indices_selections = st.selectbox(
-    "Select index to Know",['CR','HHI','Gini', 'LQ']
-)
+
 
 if indices_selections=="CR":
     st.sidebar.latex(r'''CR_{k}=\sum_{i=1}^{k}S_{i}
