@@ -260,7 +260,5 @@ uploaded_file = st.file_uploader("Due to the limit of capacity, remove unnecessa
 if uploaded_file is not None:
     dataframe = pd.read_csv(uploaded_file,index_col=0,encoding='cp949')
     st.write(dataframe)
-    tab3.selectbox(
     tab3.selectbox("Select file to apply", dataframe.columns)
-        
-
+     
