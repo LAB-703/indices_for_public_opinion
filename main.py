@@ -248,6 +248,11 @@ uploaded_files = tab3.file_uploader("Due to the limit of capacity, remove unnece
 for uploaded_file in uploaded_files:
     dataframe = pd.read_csv(uploaded_file,index_col=0,encoding='cp949')
     tab3.write(dataframe)
+        
+
+file_selections = st.sidebar.selectbox(
+    "Select file to apply",uploaded_files
+)
 
 
 
