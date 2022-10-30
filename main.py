@@ -195,7 +195,6 @@ if uploaded_file is not None:
 if indices_selections=="CR":
     st.sidebar.latex(r'''CR_{k}=\sum_{i=1}^{k}S_{i}
     ''')
-    st.sidebar.write('점유율')
     CR_code = '''import pandas as pd
 import numpy as np
 
@@ -205,9 +204,14 @@ def CR(df,sort_by,k=3):
     CR=np.sum(CR_df['Si'][0:k]).round(3)
     return CR'''
     st.sidebar.code(CR_code, language='python')
-    tab1.write(CR(df_news, 'COMPANY'))
-    tab1.write(CR(df_news, 'AUTHOR'))
-    tab2.write(CR(df_reply, 'AUTHOR_RE'))
+    tab1.write('CR by COMPANY : ',CR(df_news, 'COMPANY'))
+    tab1.write('CR by AUTHOR : ',CR(df_news, 'AUTHOR'))
+    tab2.write('CR by AUTHOR_RE : ',CR(df_reply, 'AUTHOR_RE'))
+        
+if uploaded_file is not None and :
+    sort_by=st.selectbox("select column to apply", df.columns)
+    tab3.write('CR by '+sort_by+' : ',CR(df, sort_by))
+
 
 
 ##################################################################################2. HHI
