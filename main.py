@@ -244,16 +244,13 @@ tab2.write(df_reply)
 tab3.subheader("user ➕")
 
 # 복수 허용 
-# uploaded_files = tab3.file_uploader("Due to the limit of capacity, remove unnecessary columns and upload them.", type=['csv'], accept_multiple_files=True)
+uploaded_files = tab3.file_uploader("Due to the limit of capacity, remove unnecessary columns and upload them.", type=['csv'], accept_multiple_files=True)
 
-# for uploaded_file in uploaded_files:
-#     dataframe = pd.read_csv(uploaded_file,index_col=0,encoding='cp949')
-#     tab3.write(dataframe)
+for uploaded_file in uploaded_files:
+    dataframe = pd.read_csv(uploaded_file,index_col=0,encoding='cp949')
+    tab3.write(dataframe)
 
 
-uploaded_file = tab3.file_uploader("Due to the limit of capacity, remove unnecessary columns and upload them.", type=['csv'])
-dataframe = pd.read_csv(uploaded_file,index_col=0,encoding='cp949')
-tab3.write(dataframe)
 
 
 
