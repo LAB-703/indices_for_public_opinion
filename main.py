@@ -148,6 +148,7 @@ df_news=pd.read_csv("df_news2.csv", encoding='cp949',index_col=0)
 df_reply=pd.read_csv("df_reply.csv", encoding='cp949',index_col=0)
 
 
+
 #################################################################
 st.sidebar.subheader("📈 indices for public opinion")
 
@@ -167,6 +168,28 @@ tab2.write(df_reply)
 
 tab3.subheader("user ➕")
 
+
+# 복수 허용 
+# uploaded_files = tab3.file_uploader("Due to the limit of capacity, remove unnecessary columns and upload them.", type=['csv'], accept_multiple_files=True)
+
+# for uploaded_file in uploaded_files:
+#     dataframe = pd.read_csv(uploaded_file,index_col=0,encoding='cp949')
+#     uploaded_file.str.find("name"
+#     tab3.write(dataframe)
+        
+
+# file_selections = tab3.selectbox(
+#     "Select file to apply",uploaded_files)
+
+# tab3.write(uploaded_files)
+
+
+uploaded_file = tab3.file_uploader("Due to the limit of capacity, remove unnecessary columns and upload them.", type=['csv'])
+if uploaded_file is not None:
+    df = pd.read_csv(uploaded_file,index_col=0,encoding='cp949')
+    sort_by=tab3.selectbox("Select column to apply for sort_by", df.columns)
+    tab3.write(df)  
+
 ##################################################################################1. CR
 
 if indices_selections=="CR":
@@ -183,8 +206,9 @@ def CR(df,sort_by,k=3):
     return CR'''
     st.sidebar.code(CR_code, language='python')
     tab1.write(CR(df_news, 'COMPANY'))
-    tab2.write(CR(df_reply, 'COMPANY'))
-    tab3.write(CR(dataframe, 'COMPANY'))
+    tab1.write(CR(df_news, 'AUTHOR'))
+    tab2.write(CR(df_reply, 'AUTHOR_RE'))
+
 
 ##################################################################################2. HHI
         
@@ -251,26 +275,6 @@ def LQ(df, index_i, i, index_j,j, sort_by):
 #################################################################
 
 
-# 복수 허용 
-# uploaded_files = tab3.file_uploader("Due to the limit of capacity, remove unnecessary columns and upload them.", type=['csv'], accept_multiple_files=True)
-
-# for uploaded_file in uploaded_files:
-#     dataframe = pd.read_csv(uploaded_file,index_col=0,encoding='cp949')
-#     uploaded_file.str.find("name"
-#     tab3.write(dataframe)
-        
-
-# file_selections = tab3.selectbox(
-#     "Select file to apply",uploaded_files)
-
-# tab3.write(uploaded_files)
-
-
-uploaded_file = tab3.file_uploader("Due to the limit of capacity, remove unnecessary columns and upload them.", type=['csv'])
-if uploaded_file is not None:
-    dataframe = pd.read_csv(uploaded_file,index_col=0,encoding='cp949')
-    sort_by=tab3.selectbox("Select column to apply for sort_by", dataframe.columns)
-    tab3.write(dataframe)  
 
 
      
