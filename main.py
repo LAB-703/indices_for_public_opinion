@@ -176,6 +176,7 @@ def CR(df,sort_by,k=3):
 if indices_selections=="HHI":
         st.sidebar.latex(r'''
     HHI=\sum_{i=1}^{N}{S_{i}}^{2}\times 10,000 
+\\  
 \\
  S_{i}=\frac{n_{i}}{N}
     ''')
@@ -192,6 +193,8 @@ def HHI(df, sort_by):
 if indices_selections=="Gini":
         st.sidebar.latex(r'''
     G=\frac{\Delta }{2\mu }\\
+    \\  
+\\
 \Delta =\frac{1}{n(n-1)} \sum_{n}^{i=1}\sum_{n}^{j=1}\left|x_{i}-x_{j}\right|
     ''')
         Gini_code = '''def Gini(df, sort_by):
