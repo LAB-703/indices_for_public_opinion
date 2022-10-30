@@ -146,13 +146,22 @@ def LQ(df, index_i, i, index_j,j, sort_by):
 
 df_news=pd.read_csv("df_news2.csv", encoding='cp949',index_col=0)
 df_reply=pd.read_csv("df_reply.csv", encoding='cp949',index_col=0)
-tabs=["df_news", "df_reply", "user ➕"]
+
 
 #################################################################
 st.sidebar.subheader("📈 indices for public opinion")
 
+tabs=["df_news", "df_reply", "user ➕"]
+tab1, tab2,tab3 = st.tabs(tabs)
+
+tab1.subheader("df_news")
+tab1.write(df_news)
 
 
+tab2.subheader("df_reply")
+tab2.write(df_reply)
+
+tab3.subheader("user ➕")
 
 
 indices_selections = st.sidebar.selectbox(
@@ -172,9 +181,7 @@ def CR(df,sort_by,k=3):
     CR=np.sum(CR_df['Si'][0:k]).round(3)
     return CR'''
     st.sidebar.code(CR_code, language='python')
-    st.write('CR :')
-    st.write('1 + 1 = ', 2)
-    st.write(CR(df_news, 'COMPANY', 5))
+    tab1.write('CR :', CR(df_news, 'COMPANY', 5))
         
 if indices_selections=="HHI":
         st.sidebar.latex(r'''
@@ -238,16 +245,7 @@ def LQ(df, index_i, i, index_j,j, sort_by):
 
 
 
-tab1, tab2,tab3 = st.tabs(tabs)
 
-tab1.subheader("df_news")
-tab1.write(df_news)
-
-
-tab2.subheader("df_reply")
-tab2.write(df_reply)
-
-tab3.subheader("user ➕")
 
 # 복수 허용 
 # uploaded_files = tab3.file_uploader("Due to the limit of capacity, remove unnecessary columns and upload them.", type=['csv'], accept_multiple_files=True)
