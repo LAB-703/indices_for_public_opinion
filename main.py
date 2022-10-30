@@ -262,8 +262,14 @@ tab3.subheader("user ➕")
 uploaded_file = tab3.file_uploader("Due to the limit of capacity, remove unnecessary columns and upload them.", type=['csv'])
 if uploaded_file is not None:
     dataframe = pd.read_csv(uploaded_file,index_col=0,encoding='cp949')
-    tab3.selectbox("Select column to apply for sort_by", dataframe.columns)
+    sort_by=tab3.selectbox("Select column to apply for sort_by", dataframe.columns)
     tab3.write(dataframe)  
         
-     
+        
+index_selections = st.selectbox(
+    "Select index to Know",['CR','HHI','Gini', 'LQ']
+)
+
+if index_selections=="CR":
+    CR(dataframe, sort_by) 
 
