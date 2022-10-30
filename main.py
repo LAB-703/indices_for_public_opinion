@@ -164,7 +164,7 @@ tab2.write(df_reply)
 tab3.subheader("user ➕")
 
 
-indices_selections = st.sidebar.selectbox(
+indices_selections = tab1.sidebar.selectbox(
     "Select index to Know",['CR','HHI','Gini', 'LQ']
 )
 
@@ -243,9 +243,6 @@ def LQ(df, index_i, i, index_j,j, sort_by):
         st.sidebar.code(LQ_code, language='python')        
 #################################################################
 
-
-if indices_selections=="CR":
-    tab1.write('CR :', CR(df_news, 'COMPANY', 5))
 
 # 복수 허용 
 # uploaded_files = tab3.file_uploader("Due to the limit of capacity, remove unnecessary columns and upload them.", type=['csv'], accept_multiple_files=True)
