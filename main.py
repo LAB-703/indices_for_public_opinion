@@ -251,7 +251,7 @@ for uploaded_file in uploaded_files:
         
 
 file_selections = st.sidebar.selectbox(
-    "Select file to apply",uploaded_files
+    "Select file to apply",uploaded_files['name']
 )
 
 
