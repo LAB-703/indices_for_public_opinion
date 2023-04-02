@@ -323,8 +323,8 @@ def LQ(df, index_i, i, index_j,j, sort_by):
         
     if uploaded_file is not None:
         tab3.write(df)  
-        tab3.write(print(df.columns))
-        sort_by2 = tab3.selectbox("Select column to apply for sort_by2", ("idiot", "computer"))
+        tab3.write(df.columns)
+        sort_by2 = st.selectbox("Select column to apply for sort_by2", ("idiot", "computer"))
         
 #         selected_ENGINE = tab3.selectbox('select one in ENGINE', df_news.ENGINE.unique())
 #         selected_COMPANY = tab3.selectbox('select one in COMPANY',df_news.COMPANY.unique())
