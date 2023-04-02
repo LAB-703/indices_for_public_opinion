@@ -310,10 +310,16 @@ def LQ(df, index_i, i, index_j,j, sort_by):
     return LQ,LQ_df2
 '''
     st.sidebar.code(LQ_code, language='python')
+        option = st.selectbox(
+    'How would you like to be contacted?',
+    ('Email', 'Home phone', 'Mobile phone'))
 
-    tab1.write('LQ for COMPANY and ENGINE')
-    selected_ENGINE = st.selectbox('select one in ENGINE', list(df.ENGINE.unique()))
-    selected_COMPANY = st.selectbox('select one in COMPANY', list(df.COMPANY.unique()))
+        st.write('You selected:', option)
+
+
+#     tab1.write('LQ for COMPANY and ENGINE')
+#     selected_ENGINE = st.selectbox('select one in ENGINE', list(df.ENGINE.unique()))
+#     selected_COMPANY = st.selectbox('select one in COMPANY', list(df.COMPANY.unique()))
 
     tab1.write(LQ(df_news, 'ENGINE','DAUM', 'COMPANY','M**', 'AUTHOR')[0])
     tab1.write(LQ(df_news, 'ENGINE','DAUM', 'COMPANY','M**', 'AUTHOR')[1])
