@@ -313,9 +313,9 @@ def LQ(df, index_i, i, index_j,j, sort_by):
 '''
     st.sidebar.code(LQ_code, language='python')
 
-    tab1.write('LQ for COMPANY and ENGINE')
     selected_ENGINE = tab1.selectbox('select one in ENGINE', df_news.ENGINE.unique())
     selected_COMPANY = tab1.selectbox('select one in COMPANY',df_news.COMPANY.unique())
+    tab1.write(f'LQ for COMPANY : {selected_ENGINE} and ENGINE : {selected_COMPANY}')
 
     tab1.write(LQ(df_news, 'ENGINE',selected_ENGINE, 'COMPANY',selected_COMPANY, 'AUTHOR')[0])
     tab1.write(LQ(df_news, 'ENGINE',selected_ENGINE, 'COMPANY',selected_COMPANY, 'AUTHOR')[1])
