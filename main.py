@@ -221,13 +221,13 @@ def CR(df,sort_by,k=3):
 ##################################################################################2. HHI
         
 if indices_selections=="HHI":
-        st.sidebar.latex(r'''
+    st.sidebar.latex(r'''
     HHI=\sum_{i=1}^{N}{S_{i}}^{2}\times 10,000 
 \\  
 \\
  S_{i}=\frac{n_{i}}{N}
     ''')
-        HHI_code = '''import pandas as pd
+    HHI_code = '''import pandas as pd
 import numpy as np
 
 def HHI(df, sort_by):
@@ -235,7 +235,19 @@ def HHI(df, sort_by):
     HHI_df['Si']=HHI_df['count']/len(df)
     HHI=np.sum(np.square(HHI_df['Si'])*10000)
     return HHI'''
-        st.sidebar.code(HHI_code, language='python')
+    st.sidebar.code(HHI_code, language='python')
+        
+    tab1.write('HHI for COMPANY')
+    tab1.write(HHI(df_news, 'COMPANY'))
+    tab1.write('HHI for AUTHOR')
+    tab1.write(HHI(df_news, 'AUTHOR'))
+
+    tab2.write('HHI for AUTHOR_RE')
+    tab2.write(HHI(df_reply, 'AUTHOR_RE'))
+        
+    if uploaded_file is not None:
+        tab3.write(f'HHI for {sort_by}')       
+        tab3.write(HHI(df, sort_by))
 ##################################################################################3. Gini
          
 if indices_selections=="Gini":
