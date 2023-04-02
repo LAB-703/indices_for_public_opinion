@@ -188,7 +188,6 @@ uploaded_file = tab3.file_uploader("Due to the limit of capacity, remove unneces
 if uploaded_file is not None:
     df = pd.read_csv(uploaded_file,index_col=0,encoding='cp949')
     sort_by=tab3.selectbox("Select column to apply for sort_by", df.columns)
-    tab3.write(df)  
 
 ##################################################################################1. CR
 
@@ -213,6 +212,7 @@ def CR(df,sort_by,k=3):
     tab2.write(CR(df_reply, 'AUTHOR_RE'))
         
     if uploaded_file is not None:
+        tab3.write(df)  
         tab3.write(f'CR index for {sort_by}')       
         tab3.write(CR(df, sort_by))
 
@@ -246,6 +246,7 @@ def HHI(df, sort_by):
     tab2.write(HHI(df_reply, 'AUTHOR_RE'))
         
     if uploaded_file is not None:
+        tab3.write(df)  
         tab3.write(f'HHI for {sort_by}')       
         tab3.write(HHI(df, sort_by))
 ##################################################################################3. Gini
@@ -286,6 +287,7 @@ if indices_selections=="Gini":
     tab2.write(Gini(df_reply, 'AUTHOR_RE')[1])
         
     if uploaded_file is not None:
+        tab3.write(df)  
         tab3.write(f'Gini for {sort_by}')       
         tab3.write(Gini(df, sort_by)[0])
         tab3.write(Gini(df, sort_by)[1])
@@ -315,8 +317,8 @@ def LQ(df, index_i, i, index_j,j, sort_by):
     selected_ENGINE = st.selectbox('select one in ENGINE', df_news.ENGINE.unique())
     selected_COMPANY = st.selectbox('select one in COMPANY',df_news.COMPANY.unique())
 
-    tab1.write(LQ(df_news, 'ENGINE','DAUM', 'COMPANY','M**', 'AUTHOR')[0])
-    tab1.write(LQ(df_news, 'ENGINE','DAUM', 'COMPANY','M**', 'AUTHOR')[1])
+    tab1.write(LQ(df_news, 'ENGINE',selected_ENGINE, 'COMPANY',selected_COMPANY, 'AUTHOR')[0])
+    tab1.write(LQ(df_news, 'ENGINE',selected_ENGINE, 'COMPANY',selected_COMPANY, 'AUTHOR')[1])
 
 #     tab1.write(LQ(df_news, 'COMPANY')[1])
         
