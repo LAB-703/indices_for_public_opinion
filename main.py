@@ -329,9 +329,8 @@ def LQ(df, index_i, i, index_j,j, sort_by):
         
         selected1 = tab3.selectbox('select one in sort_by', np.array(df[sort_by].unique()))
         selected2 = tab3.selectbox('select one in sort_by2', np.array(df[sort_by2].unique()))
-        selected3 = tab3.selectbox('select one in sort_by3', np.array(df[sort_by3].unique()))
         
         
         tab3.write(f'LQ for {sort_by3} in {sort_by} and {sort_by2}')       
-        tab3.write(LQ(df, sort_by, selected1, sort_by2,selected2, sort_by)[0])
-        tab3.write(LQ(df, sort_by,selected1, sort_by2,selected2, sort_by)[1])
+        tab3.write(LQ(df, sort_by, selected1, sort_by2,selected2, sort_by3)[0])
+        tab3.write(LQ(df, sort_by,selected1, sort_by2,selected2, sort_by3)[1])
