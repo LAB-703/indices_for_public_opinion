@@ -315,15 +315,15 @@ def LQ(df, index_i, i, index_j,j, sort_by):
     tab1.write(LQ(df_news, 'ENGINE','DAUM', 'COMPANY','M**', 'AUTHOR')[0])
     tab1.write(LQ(df_news, 'ENGINE','DAUM', 'COMPANY','M**', 'AUTHOR')[1])
 
-    tab1.write(LQ(df_news, 'COMPANY')[1])
+#     tab1.write(LQ(df_news, 'COMPANY')[1])
         
-    tab1.write('LQ for AUTHOR')
-    tab1.write(LQ(df_news, 'AUTHOR')[0])
-    tab1.write(LQ(df_news, 'AUTHOR')[1])
+#     tab1.write('LQ for AUTHOR')
+#     tab1.write(LQ(df_news, 'AUTHOR')[0])
+#     tab1.write(LQ(df_news, 'AUTHOR')[1])
 
-    tab2.write('LQ for AUTHOR_RE')
-    tab2.write(LQ(df_reply, 'AUTHOR_RE')[0])
-    tab2.write(LQ(df_reply, 'AUTHOR_RE')[1])
+#     tab2.write('LQ for AUTHOR_RE')
+#     tab2.write(LQ(df_reply, 'AUTHOR_RE')[0])
+#     tab2.write(LQ(df_reply, 'AUTHOR_RE')[1])
         
     if uploaded_file is not None:
         sort_by2=tab3.selectbox("Select column to apply for sort_by", df.columns)
