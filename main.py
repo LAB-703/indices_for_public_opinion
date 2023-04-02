@@ -251,7 +251,7 @@ def HHI(df, sort_by):
 ##################################################################################3. Gini
          
 if indices_selections=="Gini":
-        st.sidebar.latex(r'''
+    st.sidebar.latex(r'''
     G=\frac{\Delta }{2\mu }\\
     \\  
 \\
@@ -271,7 +271,19 @@ if indices_selections=="Gini":
     Gini=(Delta/(2*Mu)).round(3)
     return Gini, Gini_df2
 '''
-        st.sidebar.code(Gini_code, language='python')
+    st.sidebar.code(Gini_code, language='python')
+        
+    tab1.write('Gini for COMPANY')
+    tab1.write(Gini(df_news, 'COMPANY'))
+    tab1.write('Gini for AUTHOR')
+    tab1.write(Gini(df_news, 'AUTHOR'))
+
+    tab2.write('Gini for AUTHOR_RE')
+    tab2.write(Gini(df_reply, 'AUTHOR_RE'))
+        
+    if uploaded_file is not None:
+        tab3.write(f'Gini for {sort_by}')       
+        tab3.write(Gini(df, sort_by))
 ##################################################################################4. LQ
         
 if indices_selections=="LQ":
