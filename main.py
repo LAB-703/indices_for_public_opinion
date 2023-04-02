@@ -313,8 +313,8 @@ def LQ(df, index_i, i, index_j,j, sort_by):
 '''
     st.sidebar.code(LQ_code, language='python')
 
-    selected_ENGINE = st.selectbox('select one in ENGINE', df_news.ENGINE.unique())
-    selected_COMPANY = st.selectbox('select one in COMPANY',df_news.COMPANY.unique())
+    selected_ENGINE = tab1.selectbox('select one in ENGINE', df_news.ENGINE.unique())
+    selected_COMPANY = tab1.selectbox('select one in COMPANY',df_news.COMPANY.unique())
     tab1.write(f'LQ for COMPANY : {selected_ENGINE} and ENGINE : {selected_COMPANY}')
 
     tab1.write(LQ(df_news, 'ENGINE',selected_ENGINE, 'COMPANY',selected_COMPANY, 'AUTHOR')[0])
@@ -322,7 +322,11 @@ def LQ(df, index_i, i, index_j,j, sort_by):
 
         
     if uploaded_file is not None:
-        sort_by2=tab3.selectbox("Select column to apply for sort_by", df.columns)
-        tab3.write(f'LQ for {sort_by} and {sort_by2}')       
-        tab3.write(LQ(df_news, sort_by,'DAUM', sort_by2,'M**', 'AUTHOR')[0])
-        tab3.write(LQ(df_news, sort_by,'DAUM', sort_by2,'M**', 'AUTHOR')[1])
+        tab3.write(df)  
+#         selected_ENGINE = tab3.selectbox('select one in ENGINE', df_news.ENGINE.unique())
+#         selected_COMPANY = tab3.selectbox('select one in COMPANY',df_news.COMPANY.unique())
+        
+#         sort_by2=tab3.selectbox("Select column to apply for sort_by", df.columns)
+#         tab3.write(f'LQ for {sort_by} and {sort_by2}')       
+#         tab3.write(LQ(df_news, sort_by,'DAUM', sort_by2,'M**', 'AUTHOR')[0])
+#         tab3.write(LQ(df_news, sort_by,'DAUM', sort_by2,'M**', 'AUTHOR')[1])
