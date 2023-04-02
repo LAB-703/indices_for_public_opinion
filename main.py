@@ -111,7 +111,7 @@ def CR(df,sort_by,k=3):
 def HHI(df, sort_by):
     HHI_df=pd.DataFrame({"count" : df[sort_by].value_counts()}).reset_index()
     HHI_df['Si']=HHI_df['count']/len(df)
-    HHI=np.sum(np.square(HHI_df['Si'])*10000)
+    HHI=np.sum(np.square(HHI_df['Si'])*10000).round(1)
     return HHI
 
 import pandas as pd
@@ -233,7 +233,7 @@ import numpy as np
 def HHI(df, sort_by):
     HHI_df=pd.DataFrame({"count" : df[sort_by].value_counts()}).reset_index()
     HHI_df['Si']=HHI_df['count']/len(df)
-    HHI=np.sum(np.square(HHI_df['Si'])*10000)
+    HHI=np.sum(np.square(HHI_df['Si'])*10000).round(1)
     return HHI'''
     st.sidebar.code(HHI_code, language='python')
         
