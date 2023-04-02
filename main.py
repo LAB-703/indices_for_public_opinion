@@ -325,8 +325,8 @@ def LQ(df, index_i, i, index_j,j, sort_by):
         sort_by2 = tab3.selectbox("Select column to apply for sort_by2", df.columns)
         tab3.write(df)  
         
-        selected_ENGINE = tab3.selectbox('select one in ENGINE', df.ENGINE.unique())
-        selected_COMPANY = tab3.selectbox('select one in COMPANY',df.COMPANY.unique())
+        selected1 = tab3.selectbox(f'select one in {sort_by}', df.sort_by.unique())
+        selected2 = tab3.selectbox(f'select one in {sort_by2}',df.sort_by2.unique())
         
 #         sort_by2=tab3.selectbox("Select column to apply for sort_by", df.columns)
 #         tab3.write(f'LQ for {sort_by} and {sort_by2}')       
