@@ -310,11 +310,11 @@ def LQ(df, index_i, i, index_j,j, sort_by):
     return LQ,LQ_df2
 '''
     st.sidebar.code(LQ_code, language='python')
-        option = st.selectbox(
+    option = st.selectbox(
     'How would you like to be contacted?',
     ('Email', 'Home phone', 'Mobile phone'))
 
-        st.write('You selected:', option)
+    st.write('You selected:', option)
 
 
 #     tab1.write('LQ for COMPANY and ENGINE')
