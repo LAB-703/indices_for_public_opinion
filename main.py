@@ -333,5 +333,5 @@ def LQ(df, index_i, i, index_j,j, sort_by):
         
         
         tab3.write(f'LQ for {sort_by3} in {sort_by} and {sort_by2}')       
-        tab3.write(LQ(df_news, sort_by, selected1, sort_by2,selected2, selected3)[0])
-        tab3.write(LQ(df_news, sort_by,selected1, sort_by2,selected2, selected3)[1])
+        tab3.write(LQ(df, sort_by, selected1, sort_by2,selected2, selected3)[0])
+        tab3.write(LQ(df, sort_by,selected1, sort_by2,selected2, selected3)[1])
