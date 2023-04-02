@@ -315,7 +315,7 @@ def LQ(df, index_i, i, index_j,j, sort_by):
 
     selected_ENGINE = tab1.selectbox('select one in ENGINE', df_news.ENGINE.unique())
     selected_COMPANY = tab1.selectbox('select one in COMPANY',df_news.COMPANY.unique())
-    tab1.write(f'LQ for COMPANY : {selected_ENGINE} and ENGINE : {selected_COMPANY}')
+    tab1.write(f'LQ for AUTHOR in COMPANY : {selected_ENGINE} and ENGINE : {selected_COMPANY}')
 
     tab1.write(LQ(df_news, 'ENGINE',selected_ENGINE, 'COMPANY',selected_COMPANY, 'AUTHOR')[0])
     tab1.write(LQ(df_news, 'ENGINE',selected_ENGINE, 'COMPANY',selected_COMPANY, 'AUTHOR')[1])
@@ -330,7 +330,6 @@ def LQ(df, index_i, i, index_j,j, sort_by):
         selected1 = tab3.selectbox('select one in sort_by', np.array(df[sort_by].unique()))
         selected2 = tab3.selectbox('select one in sort_by2', np.array(df[sort_by2].unique()))
         
-        
-        tab3.write(f'LQ for {sort_by3} in {sort_by} and {sort_by2}')       
+        tab3.write(f'LQ for {sort_by3} in {sort_by} : {selected1} and {sort_by2} : {selected2}')       
         tab3.write(LQ(df, sort_by, selected1, sort_by2,selected2, sort_by3)[0])
         tab3.write(LQ(df, sort_by,selected1, sort_by2,selected2, sort_by3)[1])
