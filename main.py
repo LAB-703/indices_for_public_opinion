@@ -311,7 +311,7 @@ def LQ(df, index_i, i, index_j,j, sort_by):
 '''
     st.sidebar.code(LQ_code, language='python')
 
-    tab1.write('LQ for COMPANY')
+    tab1.write('LQ for COMPANY and ENGINE')
     tab1.write(LQ(df_news, 'ENGINE','DAUM', 'COMPANY','M**', 'AUTHOR')[0])
     tab1.write(LQ(df_news, 'ENGINE','DAUM', 'COMPANY','M**', 'AUTHOR')[1])
 
