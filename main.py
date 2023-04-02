@@ -87,6 +87,17 @@ div.streamlit-expanderHeader.st-ae.st-bq.st-ag.st-ah.st-ai.st-aj.st-br.st-bs.st-
 
 st.markdown(hide_menu, unsafe_allow_html=True)
 
+st.markdown(
+    f'''
+        <style>
+            .sidebar .sidebar-content {{
+                width: 375px;
+            }}
+        </style>
+    ''',
+    unsafe_allow_html=True
+)
+
 #chart = functools.partial(st.plotly_chart, use_container_width=True)
 #COMMON_ARGS = {
 #    "color": "symbol",
