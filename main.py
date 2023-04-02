@@ -293,10 +293,10 @@ if indices_selections=="Gini":
 ##################################################################################4. LQ
         
 if indices_selections=="LQ":
-        st.sidebar.latex(r'''
+    st.sidebar.latex(r'''
        LQ=\frac{Q_{ij}/Q_{i}}{Q_{j}/Q}
     ''')
-        LQ_code = '''import pandas as pd
+    LQ_code = '''import pandas as pd
 import numpy as np
 
 def LQ(df, index_i, i, index_j,j, sort_by):
@@ -309,7 +309,27 @@ def LQ(df, index_i, i, index_j,j, sort_by):
     LQ=round((Qij/Qi)/(Qj/Q),3)
     return LQ,LQ_df2
 '''
-        st.sidebar.code(LQ_code, language='python')        
+    st.sidebar.code(LQ_code, language='python')
+
+    tab1.write('LQ for COMPANY')
+    tab1.write(LQ(df_news, 'ENGINE','DAUM', 'COMPANY','M**', 'AUTHOR')[0])
+    tab1.write(LQ(df_news, 'ENGINE','DAUM', 'COMPANY','M**', 'AUTHOR')[1])
+
+    tab1.write(LQ(df_news, 'COMPANY')[1])
+        
+    tab1.write('LQ for AUTHOR')
+    tab1.write(LQ(df_news, 'AUTHOR')[0])
+    tab1.write(LQ(df_news, 'AUTHOR')[1])
+
+    tab2.write('LQ for AUTHOR_RE')
+    tab2.write(LQ(df_reply, 'AUTHOR_RE')[0])
+    tab2.write(LQ(df_reply, 'AUTHOR_RE')[1])
+        
+    if uploaded_file is not None:
+        sort_by2=tab3.selectbox("Select column to apply for sort_by", df.columns)
+        tab3.write(f'LQ for {sort_by}')       
+        tab3.write(LQ(df, sort_by)[0])
+        tab3.write(LQ(df, sort_by)[1])
 #################################################################
 
 
