@@ -336,5 +336,5 @@ def LQ(df, index_i, i, index_j,j, sort_by):
             tab3.write(LQ(df, sort_by,selected1, sort_by2,selected2, sort_by3)[1])
         
         except ValueError :
-            tab3.write('select every different sort_by')
+            tab3.error('select every different sort_by', icon="🚨")
            
