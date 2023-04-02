@@ -323,11 +323,15 @@ def LQ(df, index_i, i, index_j,j, sort_by):
         
     if uploaded_file is not None:
         sort_by2 = tab3.selectbox("Select column to apply for sort_by2", df.columns)
+        sort_by3 = tab3.selectbox("Select column to apply for sort_by3", df.columns)
+        
         tab3.write(df)  
         
         selected1 = tab3.selectbox('select one in sort_by', np.array(df[sort_by].unique()))
         selected2 = tab3.selectbox('select one in sort_by2', np.array(df[sort_by2].unique()))
+        selected3 = tab3.selectbox('select one in sort_by3', np.array(df[sort_by3].unique()))
         
-#         tab3.write(f'LQ for {sort_by} and {sort_by2}')       
-#         tab3.write(LQ(df_news, sort_by,'DAUM', sort_by2,'M**', 'AUTHOR')[0])
-#         tab3.write(LQ(df_news, sort_by,'DAUM', sort_by2,'M**', 'AUTHOR')[1])
+        
+        tab3.write(f'LQ for {sort_by3} in {sort_by} and {sort_by2}')       
+        tab3.write(LQ(df_news, sort_by, selected1, sort_by2,selected2, selected3)[0])
+        tab3.write(LQ(df_news, sort_by,selected1, sort_by2,selected2, selected3)[1])
