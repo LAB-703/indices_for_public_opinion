@@ -257,7 +257,7 @@ if indices_selections=="Gini":
 \\
 \Delta =\frac{1}{n(n-1)} \sum_{n}^{i=1}\sum_{n}^{j=1}\left|x_{i}-x_{j}\right|
     ''')
-        Gini_code = '''def Gini(df, sort_by):
+    Gini_code = '''def Gini(df, sort_by):
     Gini_df=pd.DataFrame({"count" : df[sort_by].value_counts()}).reset_index().sort_values('count')
     n=len(Gini_df)
     Mu=Gini_df['count'].sum()
