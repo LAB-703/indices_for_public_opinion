@@ -327,9 +327,9 @@ def LQ(df, index_i, i, index_j,j, sort_by):
         
     if uploaded_file is not None:
         sort_by2=tab3.selectbox("Select column to apply for sort_by", df.columns)
-        tab3.write(f'LQ for {sort_by}')       
-        tab3.write(LQ(df, sort_by)[0])
-        tab3.write(LQ(df, sort_by)[1])
+        tab3.write(f'LQ for {sort_by} and {sort_by2}')       
+        tab3.write(LQ(df_news, sort_by,'DAUM', sort_by2,'M**', 'AUTHOR')[0])
+        tab3.write(LQ(df_news, sort_by,'DAUM', sort_by2,'M**', 'AUTHOR')[1])
 #################################################################
 
 
