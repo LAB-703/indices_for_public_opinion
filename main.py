@@ -204,15 +204,16 @@ def CR(df,sort_by,k=3):
     CR=np.sum(CR_df['Si'][0:k]).round(3)
     return CR'''
     st.sidebar.code(CR_code, language='python')
-    tab1.write('CR index for COMPANY :')
+    tab1.write('CR index for COMPANY)
     tab1.write(CR(df_news, 'COMPANY'))
-    tab1.write('CR index for AUTHOR :')
+    tab1.write('CR index for AUTHOR')
     tab1.write(CR(df_news, 'AUTHOR'))
 
-    tab1.write('CR index for AUTHOR_RE :')
+    tab2.write('CR index for AUTHOR_RE')
     tab2.write(CR(df_reply, 'AUTHOR_RE'))
         
     if uploaded_file is not None:
+        tab3.write(f'CR index for {sort_by}')       
         tab3.write(CR(df, sort_by))
 
 
