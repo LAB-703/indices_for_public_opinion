@@ -132,6 +132,7 @@ def Gini(df, sort_by):
     Gini_df=pd.DataFrame({"count" : df[sort_by].value_counts()}).reset_index().sort_values('count')
     n=len(Gini_df)
     Mu=Gini_df['count'].sum()
+    global Gini_list
     Gini_list=[]
     for i in range(0,n):
         for j in range(0,n):
