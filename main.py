@@ -132,10 +132,11 @@ def Gini(df, sort_by):
     Gini_df=pd.DataFrame({"count" : df[sort_by].value_counts()}).reset_index().sort_values('count')
     n=len(Gini_df)
     Mu=Gini_df['count'].sum()
-    Gini_df2=pd.DataFrame(columns=[sort_by+"1",sort_by+"2","abs"])
+    Gini_list=[]
     for i in range(0,n):
         for j in range(0,n):
-            Gini_df2.loc[len(Gini_df2)] = [Gini_df[sort_by][i],Gini_df[sort_by][j], abs(Gini_df['count'][i]-Gini_df['count'][j])] #Gini_df['index'][i],Gini_df['index'][j],abs(Gini_df['count'][i]-Gini_df['count'][j])]
+            Gini_list.append([Gini_df[sort_by][i],Gini_df[sort_by][j],abs(Gini_df['count'][i]-Gini_df['count'][j])])
+    Gini_df2=pd.DataFrame(Gini_list,columns=[sort_by+"1",sort_by+"2","abs"])
     Sum=Gini_df2['abs'].sum()
     Delta=Sum/(n*(n-1))
     Gini=(Delta/(2*Mu)).round(3)
