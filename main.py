@@ -330,6 +330,7 @@ def LQ(df, index_i, i, index_j,j, sort_by):
         
     tab1.write(f'LQ for AUTHOR in ENGINE : {selected_ENGINE} and COMPANY : {selected_COMPANY}')
     tab1.write(LQ(df_news, 'ENGINE',selected_ENGINE, 'COMPANY',selected_COMPANY, 'AUTHOR')[0])
+    tab1.write("Here's the table below")
     tab1.write(LQ(df_news, 'ENGINE',selected_ENGINE, 'COMPANY',selected_COMPANY, 'AUTHOR')[1])
 
     selected_ENGINE2 = tab2.selectbox('select one in ENGINE', df_reply.ENGINE.unique())
@@ -337,6 +338,7 @@ def LQ(df, index_i, i, index_j,j, sort_by):
 
     tab2.write(f'LQ for AUTHOR in ENGINE : {selected_ENGINE2} and COMPANY : {selected_COMPANY2}')
     tab2.write(LQ(df_reply, 'ENGINE',selected_ENGINE2, 'COMPANY',selected_COMPANY2, 'AUTHOR_RE')[0])
+    tab2.write("Here's the table below")
     tab2.write(LQ(df_reply, 'ENGINE',selected_ENGINE2, 'COMPANY',selected_COMPANY2, 'AUTHOR_RE')[1])
         
     if uploaded_file is not None:
