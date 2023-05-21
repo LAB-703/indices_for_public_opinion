@@ -128,20 +128,19 @@ def HHI(df, sort_by):
 import pandas as pd
 import numpy as np
 
-def Gini(df, sort_by):
-    Gini_df=pd.DataFrame({"count" : df[sort_by].value_counts()}).reset_index().sort_values('count')
-    n=len(Gini_df)
-    Mu=Gini_df['count'].sum()
-    global Gini_list
-    Gini_list=[]
-    for i in range(0,n):
-        for j in range(0,n):
-            Gini_list.append([Gini_df['index'][i],Gini_df['index'][j],abs(Gini_df['count'][i]-Gini_df['count'][j])])
-    Gini_df2=pd.DataFrame(Gini_list,columns=[sort_by+"1",sort_by+"2","abs"])
-    Sum=Gini_df2['abs'].sum()
-    Delta=Sum/(n*(n-1))
-    Gini=(Delta/(2*Mu)).round(3)
-    return Gini, Gini_df2
+# def Gini(df, sort_by):
+#     Gini_df=pd.DataFrame({"count" : df[sort_by].value_counts()}).reset_index().sort_values('count')
+#     n=len(Gini_df)
+#     Mu=Gini_df['count'].sum()
+#     Gini_list=[]
+#     for i in range(0,n):
+#         for j in range(0,n):
+#             Gini_list.append([Gini_df['index'][i],Gini_df['index'][j],abs(Gini_df['count'][i]-Gini_df['count'][j])])
+#     Gini_df2=pd.DataFrame(Gini_list,columns=[sort_by+"1",sort_by+"2","abs"])
+#     Sum=Gini_df2['abs'].sum()
+#     Delta=Sum/(n*(n-1))
+#     Gini=(Delta/(2*Mu)).round(3)
+#     return Gini, Gini_df2
 
 def LQ(df, index_i, i, index_j,j, sort_by):
     LQ_df=df[[index_i,index_j,sort_by]].drop_duplicates()
