@@ -286,16 +286,16 @@ if indices_selections=="Gini":
     st.sidebar.code(Gini_code, language='python')
         
     tab1.write('Gini for COMPANY')
-    tab1.write(Gini(df_news, 'COMPANY')[0])
-    tab1.write(Gini(df_news, 'COMPANY')[1])
+    tab1.write(Gini(df_news, 'COMPANY'))
+#     tab1.write(Gini(df_news, 'COMPANY')[1])
         
-    tab1.write('Gini for AUTHOR')
-    tab1.write(Gini(df_news, 'AUTHOR')[0])
-    tab1.write(Gini(df_news, 'AUTHOR')[1])
+#     tab1.write('Gini for AUTHOR')
+#     tab1.write(Gini(df_news, 'AUTHOR')[0])
+#     tab1.write(Gini(df_news, 'AUTHOR')[1])
 
-    tab2.write('Gini for AUTHOR_RE')
-    tab2.write(Gini(df_reply, 'AUTHOR_RE')[0])
-    tab2.write(Gini(df_reply, 'AUTHOR_RE')[1])
+#     tab2.write('Gini for AUTHOR_RE')
+#     tab2.write(Gini(df_reply, 'AUTHOR_RE')[0])
+#     tab2.write(Gini(df_reply, 'AUTHOR_RE')[1])
         
     if uploaded_file is not None:
         tab3.write(df)  
