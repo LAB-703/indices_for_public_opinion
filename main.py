@@ -286,7 +286,7 @@ if indices_selections=="Gini":
     st.sidebar.code(Gini_code, language='python')
         
     tab1.write('Gini for COMPANY')
-    tab1.write(Gini(df_news, 'COMPANY'))
+    tab1.write(Gini(df_news, 'COMPANY')[0])
 #     tab1.write(Gini(df_news, 'COMPANY')[1])
         
 #     tab1.write('Gini for AUTHOR')
