@@ -135,7 +135,7 @@ def Gini(df, sort_by):
     Gini_list=[]
     for i in range(0,n):
         for j in range(0,n):
-            Gini_list.append([Gini_df['index'][i],Gini_df['index'][j],abs(Gini_df['count'][i]-Gini_df['count'][j])])
+            Gini_list.append([Gini_df['index'][i],Gini_df['index'][j],abs(Gini_df['count'][i])]) #-Gini_df['count'][j])])
     Gini_df2=pd.DataFrame(Gini_list,columns=[sort_by+"1",sort_by+"2","abs"])
     Sum=Gini_df2['abs'].sum()
     Delta=Sum/(n*(n-1))
