@@ -157,7 +157,7 @@ def LQ(df, index_i, i, index_j,j, sort_by):
 ##############################################################
 
 df_news=pd.read_csv("df_news2.csv", encoding='cp949',index_col=0)
-df_reply=pd.read_csv("df_reply.csv", encoding='cp949',index_col=0)
+df_reply=pd.read_csv("df_reply2.csv", encoding='cp949',index_col=0)
 
 
 
@@ -327,11 +327,17 @@ def LQ(df, index_i, i, index_j,j, sort_by):
 
     selected_ENGINE = tab1.selectbox('select one in ENGINE', df_news.ENGINE.unique())
     selected_COMPANY = tab1.selectbox('select one in COMPANY',df_news.COMPANY.unique())
-    tab1.write(f'LQ for AUTHOR in COMPANY : {selected_ENGINE} and ENGINE : {selected_COMPANY}')
-
+        
+    tab1.write(f'LQ for AUTHOR in ENGINE : {selected_ENGINE} and COMPANY : {selected_COMPANY}')
     tab1.write(LQ(df_news, 'ENGINE',selected_ENGINE, 'COMPANY',selected_COMPANY, 'AUTHOR')[0])
     tab1.write(LQ(df_news, 'ENGINE',selected_ENGINE, 'COMPANY',selected_COMPANY, 'AUTHOR')[1])
 
+    selected_ENGINE2 = tab2.selectbox('select one in ENGINE', df_reply.ENGINE.unique())
+    selected_COMPANY2 = tab2.selectbox('select one in COMPANY',df_reply.COMPANY.unique())
+
+    tab2.write(f'LQ for AUTHOR in ENGINE : {selected_ENGINE2} and COMPANY : {selected_COMPANY2}')
+    tab2.write(LQ(df_reply, 'ENGINE',selected_ENGINE2, 'AUTHOR',selected_COMPANY2, 'AUTHOR')[0])
+    tab2.write(LQ(df_reply, 'ENGINE',selected_ENGINE2, 'AUTHOR',selected_COMPANY2, 'AUTHOR')[1])
         
     if uploaded_file is not None:
         sort_by2 = tab3.selectbox("Select column to apply for sort_by2", df.columns)
